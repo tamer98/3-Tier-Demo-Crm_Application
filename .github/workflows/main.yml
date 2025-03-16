@@ -59,11 +59,11 @@ jobs:
         aws-region: ap-south-1
         
     - name: Authenticate Docker to AWS ECR
-      run: ${{ env.DOCKER_AUTENTICATES_AWS }} 
+      run: ${{ env.DOCKER_AUTENTICATES_AWS }}
       # Authenticates Docker to AWS ECR using the AWS CLI.
    
     - name: Tag Docker image
-      run: docker tag demo-crm:latest 390844757505.dkr.ecr.ap-south-1.amazonaws.com/development/demo-crm:deploy:deploy
+      run: docker tag application_portfolio-demo-crm 390844757505.dkr.ecr.ap-south-1.amazonaws.com/development/demo-crm:deploy
       # Tags the Docker image for the ECR repository.
   
     - name: Push Docker image to ECR
@@ -73,8 +73,9 @@ jobs:
 
     - name: Update Kubernetes Deployment
       run: |
-        $(( env.EKS_Config }}
-        kubectl set image deployment/demo-crm-deployment demo-crm-container=${{ env.ECR_REPOSITORY_URI }}:deploy
+        aws eks --region ap-south-1 update-kubeconfig --name tamer-cluster
+        kubectl set image deployment/demo-crm-deployment demo-crm-container=390844757505.dkr.ecr.ap-south-1.amazonaws.com/development/demo-crm:deploy
         kubectl rollout status deployment/demo-crm-deployment
         kubectl get pods
         kubectl describe deployment demo-crm
+        
