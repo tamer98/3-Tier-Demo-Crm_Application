@@ -63,7 +63,7 @@ jobs:
       # Authenticates Docker to AWS ECR using the AWS CLI.
    
     - name: Tag Docker image
-      run: docker tag application_portfolio-demo-crm ${{ env.ECR_REPOSITORY_URI }}:deploy
+      run: docker tag demo-crm:latest ${{ env.ECR_REPOSITORY_URI }}:deploy
       # Tags the Docker image for the ECR repository.
   
     - name: Push Docker image to ECR
