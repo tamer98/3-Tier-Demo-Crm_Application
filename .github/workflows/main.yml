@@ -8,14 +8,21 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     defaults:
-      run:
+      run: 
         working-directory: ./demo-crm-main
     steps:
     - name: Check out code
       uses: actions/checkout@v2
       # Allow the runner to check out the source code from the repository.
 #Clone/Pull(1)
-     
+
+    - name: Load from .secrets and .env_other files
+      run: |
+         for file in .env_other .secret; do
+            if [ -f "$file" ]; then
+              export $(grep -v '^#' "$file" | xargs)
+            fi
+          done
       
 # Build the application (2)
     - name: Build the application
@@ -54,27 +61,27 @@ jobs:
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v2
       with:
-        aws-access-key-id: ${{ secrets.ECR_ACCESS_KEY }}
-        aws-secret-access-key: ${{ secrets.ECR_SECRET_KEY }}
+        aws-access-key-id: $ECR_ACCESS_KEY
+        aws-secret-access-key: $ECR_SECRET_KEY
         aws-region: ap-south-1
         
     - name: Authenticate Docker to AWS ECR
-      run: ${{ secrets.DOCKER_AUTENTICATES_AWS }}
+      run: $DOCKER_AUTENTICATES_AWS 
       # Authenticates Docker to AWS ECR using the AWS CLI.
    
     - name: Tag Docker image
-      run: docker tag application_portfolio-demo-crm 390844757505.dkr.ecr.ap-south-1.amazonaws.com/development/demo-crm:deploy
+      run: docker tag application_portfolio-demo-crm $ECR_REPOSITORY_URI:deploy
       # Tags the Docker image for the ECR repository.
   
     - name: Push Docker image to ECR
-      run: docker push 390844757505.dkr.ecr.ap-south-1.amazonaws.com/development/demo-crm:deploy
+      run: docker push $ECR_REPOSITORY_URI:deploy
       # Pushes the Docker image to the specified ECR repository.
 
 
     - name: Update Kubernetes Deployment
       run: |
-        aws eks --region ap-south-1 update-kubeconfig --name tamer-cluster
-        kubectl set image deployment/demo-crm-deployment demo-crm-container=390844757505.dkr.ecr.ap-south-1.amazonaws.com/development/demo-crm:deploy
+        $EKS_Config
+        kubectl set image deployment/demo-crm-deployment demo-crm-container=$ECR_REPOSITORY_URI:deploy
         kubectl rollout status deployment/demo-crm-deployment
         kubectl get pods
         kubectl describe deployment demo-crm
