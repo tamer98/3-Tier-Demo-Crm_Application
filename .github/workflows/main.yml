@@ -20,7 +20,7 @@ jobs:
 # Build the application (2)
     - name: Build the application
       run: |
-        npm ci  # Installs dependencies (use instead of npm install)
+        npm install  # Installs dependencies (use instead of npm install)
         npm run build  # Builds the Next.js app
         npm run dev &  # Start the development server in the background
 
