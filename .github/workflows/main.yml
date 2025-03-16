@@ -28,22 +28,22 @@ jobs:
     - name: Run Docker container
       run:  docker run -d -p 8080:3000 --name demo-crm-container demo-crm:latest
       
-    - name: Check application pre docker compose (wait to upload)
+    - name: wait for container inizalition upload
       run: sleep 5
       
 #Unit tests (4)
-    - name: Check application pre docker compose
+    - name: Check application 
       run: curl http://localhost:8080 
       
-    # - name: delete image pre docker compose
-    #   run: |
-    #     docker stop demo-crm-container
-    #     sleep 2
-    #     docker rm demo-crm-container
+    - name: delete image pre docker compose
+      run: |
+        docker stop demo-crm-container
+        sleep 2
+        docker rm demo-crm-container
     #     docker rmi demo-crm:latest
         
   #E2E (5)
-    - name: Build the docker-compose
+    - name: E2E Build the docker-compose
       run: docker compose up -d
       
     - name: Check running containers and existed images
