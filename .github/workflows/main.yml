@@ -18,7 +18,7 @@ jobs:
 
     - name: Load from .secrets and .env_other files
       run: |
-         for file in .env_other .secret; do
+         for file in .env_other .secrets; do
             if [ -f "$file" ]; then
               export $(grep -v '^#' "$file" | xargs)
             fi
