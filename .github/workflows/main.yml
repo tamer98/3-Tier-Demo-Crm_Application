@@ -18,13 +18,15 @@ jobs:
 
     - name: Load from .secrets and .env_other files
       run: |
-        cd ..
-         for file in .env_other .secrets; do
+          cd ..
+          for file in .env_other .secrets; do
             if [ -f "$file" ]; then
               export $(grep -v '^#' "$file" | xargs)
             fi
           done
-      
+          cd ./demo-crm-main 
+
+          
 # Build the application (2)
     - name: Build the application
       run: |
