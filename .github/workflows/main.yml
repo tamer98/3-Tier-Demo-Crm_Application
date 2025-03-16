@@ -45,7 +45,7 @@ jobs:
         docker images
         
     - name: wait application to be upload
-      run: sleep 15
+      run: sleep 10
 
     - name: Install Newman (Postman CLI)
       run: npm install -g newman
