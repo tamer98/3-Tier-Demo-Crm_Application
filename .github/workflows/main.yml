@@ -14,47 +14,37 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v2
       # Allow the runner to check out the source code from the repository.
-      #Clone/Pull(1)
-      #Build the application (2)
+#Clone/Pull(1)
+     
       
-#should i create a unit tests check every component alone ?
-    - name: Run the application
-      # working-directory: ./demo-crm-main
+# Build the application (2)
+    - name: Build the application
       run: |
-        npm install
-        npm run dev &
-    
-#Package step (3)
+        npm ci  # Installs dependencies (use instead of npm install)
+        npm run build  # Builds the Next.js app
+        npm run dev &  # Start the development server in the background
+
+    - name: wait for server to be upload
+      run: sleep 5
+      
+    - name: Check application 
+      run: curl http://localhost:3000
+      
+#Package step (4)
     - name: Build Docker image
       run: docker build -t demo-crm:latest .
       
-    - name: Run Docker container
-      run:  docker run -d -p 8080:3000 --name demo-crm-container demo-crm:latest
-      
-    - name: wait for container inizalition upload
-      run: sleep 5
-      
-#Unit tests (4)
-    - name: Check application 
-      run: curl http://localhost:8080 
-      
-    - name: delete image pre docker compose
-      run: |
-        # docker stop demo-crm-container
-        # sleep 2
-        # docker rm demo-crm-container
-    #     docker rmi demo-crm:latest
         
-  #E2E (5)
+#E2E (5)
     - name: E2E Build the docker-compose
       run: docker compose up -d
       
     - name: Check running containers and existed images
       run: |
-        docker ps
+        docker ps -a
         docker images
         
-    - name: Check application (wait to upload)
+    - name: wait application to be upload
       run: sleep 5
       
     - name: Check application after docker compose
