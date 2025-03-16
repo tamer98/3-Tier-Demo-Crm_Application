@@ -7,6 +7,9 @@ jobs:
   build_application:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    defaults:
+      run:
+        working-directory: ./demo-crm-main
     steps:
     - name: Check out code
       uses: actions/checkout@v2
@@ -16,7 +19,7 @@ jobs:
       
 #should i create a unit tests check every component alone ?
     - name: Run the application
-      working-directory: ./demo-crm-main
+      # working-directory: ./demo-crm-main
       run: |
         npm install
         npm run dev &
@@ -37,9 +40,9 @@ jobs:
       
     - name: delete image pre docker compose
       run: |
-        docker stop demo-crm-container
-        sleep 2
-        docker rm demo-crm-container
+        # docker stop demo-crm-container
+        # sleep 2
+        # docker rm demo-crm-container
     #     docker rmi demo-crm:latest
         
   #E2E (5)
