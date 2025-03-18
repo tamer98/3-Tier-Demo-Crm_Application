@@ -164,9 +164,13 @@ Expected result: [EXPECTED_RESULT_DESCRIPTION]
 
 ```mermaid
 graph LR
-    Clone/Pull --> Build Application
+    Clone/Pull --> Build_Application
+    Build_Application --> Unit_Testing
+    Unit_Testing  --> Package_Application
+    Package_Application --> End_to_End_Tests
+    End_to_End_Tests --> Publish_Image_to_ECR
+    Publish_Image_to_ECR --> Deploy_new_Image_in_running_environment
 ```
-
 
 ## Contributing
 
