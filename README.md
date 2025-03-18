@@ -1,4 +1,4 @@
-# [PROJECT_NAME]
+# Three Tier Demo-Crm Application
 
 > A SaaS-based microservices application demonstrating DevOps best practices with CI/CD, Kubernetes, Terraform, and AWS infrastructure.
 ## Table of Contents
@@ -6,14 +6,10 @@
 - [Overview](#overview)
 - [Architecture](#architecture)
 - [Technology Stack](#technology-stack)
-- [Repository Structure](#repository-structure)
 - [Prerequisites](#prerequisites)
 - [Getting Started](#getting-started)
 - [CI/CD Pipeline](#cicd-pipeline)
-- [Contributing](#contributing)
-- [Release History](#release-history)
-- [Contact](#contact)
-- [Acknowledgments](#acknowledgments)
+
 
 ## Overview
 
@@ -46,7 +42,6 @@ Key features:
 
 
 
-![Architecture Diagram](images/architecture_diagram.png)
 
 ## Technology Stack
 
@@ -60,19 +55,6 @@ Key features:
 | **Application**      | Next.js, Node.js, React|
 | **Database**         | MongoDB |
 
-## Repository Structure
-
-```
-project-root/
-├── [DIRECTORY_1]/       # [DESCRIPTION]
-│   ├── [FILE_1]         # [DESCRIPTION]
-│   └── [FILE_2]         # [DESCRIPTION]
-├── [DIRECTORY_2]/       # [DESCRIPTION]
-│   ├── [SUBDIRECTORY_1]/# [DESCRIPTION]
-│   └── [SUBDIRECTORY_2]/# [DESCRIPTION]
-└── [FILE_3]             # [DESCRIPTION]
-```
-
 ## Prerequisites
 
 Requirements for building and running the project:
@@ -82,6 +64,13 @@ Requirements for building and running the project:
 - Kubernetes CLI (kubectl) installed
 - Docker & Docker Compose installed
 - Helm package manager installed
+
+**Note: Infrastructure file are in Infrastructure_Portfolio(Terraform)**
+
+
+**Note: Cluster Resources file for Deployment are in ClusterResources_Portfolio(K8s)**
+
+
 
 ## Getting Started
 
@@ -154,9 +143,66 @@ kubectl apply -f demo-crm-ingress.yaml
 kubectl get ingress
 ```
 
+### Resources Cleaning
+
+5. **Uninstalling MongoDB Using Helm**
+```
+helm list
+helm delete my-mongodb
+```
+
+6. **Verifying Resources**
+```
+kubectl get all
+kubectl get svc
+kubectl get sc
+```
+
+7. **Deleting Storage Class**
+```
+kubectl delete sc ebs-gp3
+```
+
+8. **Deleting Persistent Volume Claims (PVCs)**
+```
+kubectl get pvc
+kubectl delete pvc --all
+```
+
+9. **Uninstalling Application Using Helm**
+```
+helm uninstall demo-crm
+```
+
+
+9. **Uninstall Nginx Ingress Controller Using Helm**
+```
+helm uninstall controller -n ingress
+#verify action
+helm list -n ingress
+```
+
+10. **Delete Ingress Resource**
+```
+kubectl delete -f demo-crm-ingress.yaml
+```
+
+11. **Delete the Namespace**
+```
+kubectl delete namespace ingress
+
+#Verify actions
+kubectl get all -n ingress
+kubectl get ingress -n ingress
+```
+
+
+
+
+
+
 **Note: must setup a domain and DNS record that will point to our Ingress Controller’s singular Load Balancer service**
 
-Expected result: [EXPECTED_RESULT_DESCRIPTION]
 
 ## CI/CD Pipeline
 
@@ -171,44 +217,3 @@ graph LR
     End_to_End_Tests --> Publish_Image_to_ECR
     Publish_Image_to_ECR --> Update_Kubernetes_Deployment_running_environment
 ```
-
-## Contributing
-
-(For open source projects)
-
-[CONTRIBUTION_GUIDELINES]
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/[FEATURE_NAME]`)
-3. Commit your changes (`git commit -m '[DESCRIPTIVE_MESSAGE]'`)
-4. Push to the branch (`git push origin feature/[FEATURE_NAME]`)
-5. Open a Pull Request
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
-
-## Release History
-
-- 0.2.1
-  - CHANGE:
-- 0.2.0
-  - CHANGE:
-  - ADD:
-- 0.1.1
-  - FIX:
-- 0.1.0
-  - First real release
-  - CHANGE:
-- 0.0.1
-  - Initial Version
-
-## Contact
-
-[YOUR_NAME] - LinkedIn - [EMAIL]
-
-Project Link: [https://github.com/[USERNAME]/[REPOSITORY]](https://github.com/[USERNAME]/[REPOSITORY])
-
-## Acknowledgments
-
-- [ACKNOWLEDGMENT_1]
-- [ACKNOWLEDGMENT_2]
-- [ACKNOWLEDGMENT_3]
