@@ -35,8 +35,14 @@ Key features:
 
 ## Architecture
 
-**Docker Diagram**
+**3-Tier Docker Diagram**
+
 ![Docker Diagram](https://github.com/user-attachments/assets/312e785e-46b9-4209-b0a1-60eb30704089)
+
+-----------------------------------
+
+**AWS Diagram**
+![aws diagram drawio-2](https://github.com/user-attachments/assets/4922ab40-6711-47a8-8f96-93ef3173264e)
 
 
 
@@ -158,11 +164,9 @@ Expected result: [EXPECTED_RESULT_DESCRIPTION]
 
 ```mermaid
 graph LR
-    A[Stage 1] --> B[Stage 2]
-    B --> C[Stage 3]
-    C --> D[Stage 4]
-    D --> E[Stage 5]
+    Clone/Pull --> Build Application
 ```
+
 
 ## Contributing
 
