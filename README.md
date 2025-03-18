@@ -196,10 +196,6 @@ kubectl get ingress -n ingress
 ```
 
 
-
-
-
-
 **Note: must setup a domain and DNS record that will point to our Ingress Controller’s singular Load Balancer service**
 
 
@@ -216,3 +212,9 @@ graph LR
     End_to_End_Tests --> Publish_Image_to_ECR
     Publish_Image_to_ECR --> Update_Kubernetes_Deployment_running_environment
 ```
+
+> Project related repositories:
+
+- https://github.com/tamer98/Infrastructure_Portfolio
+- https://github.com/tamer98/ClusterResources_Portfolio
+
