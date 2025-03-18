@@ -1,4 +1,4 @@
-# Three Tier Demo-Crm Application
+# 3-Tier Demo-Crm Application
 
 > A SaaS-based microservices application demonstrating DevOps best practices with CI/CD, Kubernetes, Terraform, and AWS infrastructure.
 ## Table of Contents
@@ -31,13 +31,13 @@ Key features:
 
 ## Architecture
 
-**3-Tier Docker Diagram**
+**3-Tier application architecture Diagram**
 
 ![Docker Diagram](https://github.com/user-attachments/assets/312e785e-46b9-4209-b0a1-60eb30704089)
 
 -----------------------------------
 
-**AWS Diagram**
+**Workflow architecture Diagram**
 ![Untitled Diagram drawio](https://github.com/user-attachments/assets/ea8a4010-5dba-40f2-87d6-22bedcf85c0b)
 
 
@@ -51,7 +51,6 @@ Key features:
 | **Containerization** | Docker, ECR    |
 | **CI/CD**            | GitHub Actions |
 | **Version Control**  |    GitHub      |
-| **Security**         | IAM, Secret Management |
 | **Application**      | Next.js, Node.js, React|
 | **Database**         | MongoDB |
 
