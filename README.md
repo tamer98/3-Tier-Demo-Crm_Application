@@ -38,7 +38,7 @@ Key features:
 -----------------------------------
 
 **AWS Diagram**
-![aws diagram drawio-2](https://github.com/user-attachments/assets/4922ab40-6711-47a8-8f96-93ef3173264e)
+![Untitled Diagram drawio](https://github.com/user-attachments/assets/ea8a4010-5dba-40f2-87d6-22bedcf85c0b)
 
 
 
