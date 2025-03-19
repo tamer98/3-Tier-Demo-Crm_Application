@@ -48,7 +48,7 @@ jobs:
         
     - name: wait application to be upload
       run: |
-        sleep 20
+        sleep 30
         curl http://localhost:80
 
     - name: Install Newman (Postman CLI)
