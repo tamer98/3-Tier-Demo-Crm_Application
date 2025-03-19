@@ -45,8 +45,8 @@ services:
     - ../nginx/nginx.conf:/etc/nginx/nginx.conf
     - ../nginx/logs.txt:/var/log/nginx/access.log
     - ../nginx/errors.txt:/var/log/nginx/error.log
-    depends_on:
-    - demo-crm
+    # depends_on:
+    # - demo-crm
         # condition: service_healthy
     networks:
      - front_end
