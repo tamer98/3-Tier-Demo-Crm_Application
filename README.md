@@ -201,7 +201,7 @@ kubectl get ingress -n ingress
 
 ## CI/CD Pipeline
 
-[PIPELINE_DESCRIPTION]
+**PIPELINE_DESCRIPTION**
 
 ```mermaid
 graph LR
