@@ -19,9 +19,9 @@ jobs:
 #Build the application (2)
     - name: Build the application
       run: |
-        npm install  # Installs dependencies (use instead of npm install)
-        npm run build  # Builds the Next.js app
-        npm run dev &  # Start the development server in the background
+        npm install  
+        npm run build  
+        npm run dev &  
 
     - name: wait for server to be upload
       run: sleep 5
@@ -48,7 +48,7 @@ jobs:
         
     - name: wait application to be upload
       run: |
-        sleep 30
+        sleep 50
         curl http://localhost:80
 
     - name: Install Newman (Postman CLI)
