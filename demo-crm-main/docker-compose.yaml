@@ -30,6 +30,11 @@ services:
     networks:
      - back_end
      - front_end
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"] 
+      interval: 10s
+      retries: 5
+      start_period: 20s
 
   nginx:
     image: nginx:alpine
@@ -41,7 +46,8 @@ services:
     - ../nginx/logs.txt:/var/log/nginx/access.log
     - ../nginx/errors.txt:/var/log/nginx/error.log
     depends_on:
-     - demo-crm
+      demo-crm:
+        condition: service_healthy
     networks:
      - front_end
 
