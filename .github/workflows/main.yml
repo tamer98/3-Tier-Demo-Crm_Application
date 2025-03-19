@@ -39,7 +39,7 @@ jobs:
       
 #E2E (5)
     - name: Deploy testing environment
-      run: docker-compose up -d
+      run: docker compose up -d
       
     - name: Check running containers and existed images
       run: |
@@ -48,7 +48,7 @@ jobs:
         
     - name: wait application to be upload
       run: |
-        sleep 50
+        sleep 5
         curl http://localhost:80
 
     - name: Install Newman (Postman CLI)
