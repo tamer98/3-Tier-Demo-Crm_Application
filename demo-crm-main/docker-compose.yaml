@@ -19,7 +19,7 @@ services:
       dockerfile: Dockerfile
     container_name: application
     ports:
-      - "3000"
+      - "3000:3000"
     depends_on:
       - mongodb
     environment:
