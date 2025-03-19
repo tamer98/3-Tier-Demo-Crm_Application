@@ -42,7 +42,7 @@ services:
     - ../nginx/logs.txt:/var/log/nginx/access.log
     - ../nginx/errors.txt:/var/log/nginx/error.log
     depends_on:
-    - demo-crm
+      - demo-crm
     networks:
      - front_end
 
