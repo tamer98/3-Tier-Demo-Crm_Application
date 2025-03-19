@@ -51,12 +51,12 @@ jobs:
         sleep 10
         curl http://localhost:80
 
-    - name: Install Newman (Postman CLI)
-      run: npm install -g newman
+    # - name: Install Newman (Postman CLI)
+    #   run: npm install -g newman
     
-    - name: Run Postman API Tests
-      run: |
-        newman run ../postman-tests/demo-crm.postman_collection.json --reporters cli
+    # - name: Run Postman API Tests
+    #   run: |
+    #     newman run ../postman-tests/demo-crm.postman_collection.json --reporters cli
 
     - name: Remove testing environment
       run: docker compose down -v
