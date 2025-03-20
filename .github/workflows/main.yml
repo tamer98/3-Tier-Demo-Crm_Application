@@ -32,11 +32,8 @@ jobs:
       run: curl http://localhost:3000
 
     - name: Stop application
-      run: |
-        PID=$(lsof -ti:3000)
-        if [ ! -z "$PID" ]; then
-          kill -SIGINT $PID
-        fi
+      run: pkill -f "next dev" || echo "No process found"
+
  
 #Package step (4)
     - name: Build Docker image
