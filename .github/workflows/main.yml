@@ -34,8 +34,10 @@ jobs:
       
 #Package step (4)
     - name: Build Docker image
-      run: docker build -t demo-crm:latest .
-      
+      run: |
+        docker build -t demo-crm:latest .
+        docker compose down --volumes --remove-orphans
+
       
 #E2E (5)
     - name: Deploy testing environment
