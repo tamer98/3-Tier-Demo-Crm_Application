@@ -37,7 +37,7 @@ Key features:
 
 -----------------------------------
 
-**Workflow architecture Diagram**
+**AWS infrastructure architecture Diagram**
 ![Untitled Diagram drawio](https://github.com/user-attachments/assets/ea8a4010-5dba-40f2-87d6-22bedcf85c0b)
 
 
