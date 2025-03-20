@@ -34,7 +34,7 @@ jobs:
     - name: Stop application
       run: |
         sleep 5
-        npm stop
+        npm run stop
  
 #Package step (4)
     - name: Build Docker image
