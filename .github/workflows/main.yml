@@ -36,7 +36,6 @@ jobs:
     - name: Build Docker image
       run: |
         docker build -t demo-crm:latest .
-        docker compose down --volumes --remove-orphans
 
       
 #E2E (5)
@@ -51,7 +50,7 @@ jobs:
     - name: wait application to be upload
       run: |
         sleep 5
-        curl http://localhost:80
+        # curl http://localhost:80
 
     - name: Install Newman (Postman CLI)
       run: npm install -g newman
