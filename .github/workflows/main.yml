@@ -33,8 +33,10 @@ jobs:
 
     - name: Stop application
       run: |
-        sleep 5
-        npm run stop
+        PID=$(lsof -ti:3000)
+        if [ ! -z "$PID" ]; then
+          kill -SIGINT $PID
+        fi
  
 #Package step (4)
     - name: Build Docker image
