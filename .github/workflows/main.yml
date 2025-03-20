@@ -31,7 +31,11 @@ jobs:
     - name: Check application 
       run: curl http://localhost:3000
 
-      
+    - name: Stop application
+      run: |
+        sleep 5
+        npm stop
+ 
 #Package step (4)
     - name: Build Docker image
       run: |
