@@ -40,7 +40,9 @@ Key features:
 **AWS infrastructure architecture Diagram**
 ![Untitled Diagram drawio](https://github.com/user-attachments/assets/ea8a4010-5dba-40f2-87d6-22bedcf85c0b)
 
-
+-----------------------------------
+**Comprehensive diagram**
+![full diagram](https://github.com/user-attachments/assets/525e6981-975d-437f-ab01-9fade8a9adb6)
 
 
 ## Technology Stack
