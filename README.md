@@ -33,7 +33,8 @@ Key features:
 
 **3-Tier application architecture Diagram**
 
-![Docker Diagram](https://github.com/user-attachments/assets/312e785e-46b9-4209-b0a1-60eb30704089)
+![Docker-diagram drawio](https://github.com/user-attachments/assets/f51d33b8-ea52-428d-b8da-e2c31ad24bb9)
+
 
 -----------------------------------
 
@@ -42,8 +43,8 @@ Key features:
 
 -----------------------------------
 **Comprehensive diagram**
-![full diagram](https://github.com/user-attachments/assets/525e6981-975d-437f-ab01-9fade8a9adb6)
 
+![Full diagram drawio](https://github.com/user-attachments/assets/f6d94dd2-2ebc-401b-ab58-2364ad759a9c)
 
 ## Technology Stack
 
