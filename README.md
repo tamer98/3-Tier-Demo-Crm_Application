@@ -32,20 +32,21 @@ Key features:
 ## Architecture
 
 **3-Tier application architecture Diagram**
+![Docker-diagram drawio](https://github.com/user-attachments/assets/e0211589-92cc-4261-84e3-4fd0579ef076)
 
-![Docker-diagram drawio](https://github.com/user-attachments/assets/f51d33b8-ea52-428d-b8da-e2c31ad24bb9)
 
 
 -----------------------------------
 
 **AWS infrastructure architecture Diagram**
 
-![AWS drawio](https://github.com/user-attachments/assets/c81d0196-fa93-44c6-83b5-d330e8691f12)
+![AWS](https://github.com/user-attachments/assets/657dfdfa-b576-4b51-9399-57a19b84e7a6)
 
 -----------------------------------
 **Comprehensive diagram**
 
-![Full diagram drawio](https://github.com/user-attachments/assets/f6d94dd2-2ebc-401b-ab58-2364ad759a9c)
+![Full diagram drawio](https://github.com/user-attachments/assets/17c7c2c5-7e2f-4483-b4ff-5433b53080b8)
+
 
 ## Technology Stack
 
