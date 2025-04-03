@@ -220,6 +220,6 @@ graph LR
 
 > Project related repositories:
 
-- https://github.com/tamer98/Infrastructure_Portfolio
-- https://github.com/tamer98/ClusterResources_Portfolio
+- https://github.com/tamer98/3-Tier-Demo-Crm_Application_Infrastructure
+- https://github.com/tamer98/3-Tier-Demo-Crm_Application_ClusterResources
 
