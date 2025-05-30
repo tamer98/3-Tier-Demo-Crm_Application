@@ -1,16 +1,14 @@
-# 3-Tier Demo-Crm Application
+## Using Docker
 
-> A SaaS-based microservices application demonstrating DevOps best practices with CI/CD, Kubernetes, Terraform, and AWS infrastructure.
-## Table of Contents
+1. [Install Docker](https://docs.docker.com/get-docker/) on your machine.
+1. Build your container: `docker build -t nextjs-docker .`.
+1. Run your container: `docker run -p 3000:3000 nextjs-docker`.
 
-- [Overview](#overview)
-- [Architecture](#architecture)
-- [Technology Stack](#technology-stack)
-- [Prerequisites](#prerequisites)
-- [Getting Started](#getting-started)
-- [CI/CD Pipeline](#cicd-pipeline)
+You can view your images created with `docker images`.
 
+## Running Locally
 
+<<<<<<< HEAD
 ## Overview
 
 This project showcases a SaaS-based application deployed on AWS using Kubernetes, with CI/CD automation through GitHub Actions. The project emphasizes:
@@ -82,16 +80,16 @@ Requirements for building and running the project:
 ### Infrastructure Setup
 
 1. **Initialize Terraform & Configure AWS:**
+=======
+First, run the development server:
+>>>>>>> 2c11304 (Update project with new changes)
 
 ```bash
-aws configure
-# set your Access Key & Secret Key or use AWS IAM 
-terraform init
-terraform plan
-terraform apply
-# make sure to shoutdown Infrastructure when finish with :
-terraform destroy
+npm run dev
+# or
+yarn dev
 ```
+<<<<<<< HEAD
 
 ### Application Deployment
 
@@ -223,3 +221,5 @@ graph LR
 - https://github.com/tamer98/3-Tier-Demo-Crm_Application_Infrastructure
 - https://github.com/tamer98/3-Tier-Demo-Crm_Application_ClusterResources
 
+=======
+>>>>>>> 2c11304 (Update project with new changes)
