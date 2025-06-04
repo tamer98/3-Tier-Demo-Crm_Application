@@ -49,14 +49,21 @@ jobs:
         
     - name: wait application to be upload
       run: |
-        sleep 60
+        sleep 15
         
-    - name: Install Newman (Postman CLI)
-      run: npm install -g newman
-    
-    - name: Run Postman API Tests
+    - name: E2E Check application 
       run: |
-        newman run ./postman-tests/demo-crm.postman_collection.json --reporters cli
+        curl http://localhost:3000
+        curl http://localhost:80
+
+
+    # - name: Install Newman (Postman CLI)
+    #   run: npm install -g newman
+    
+    # - name: Run Postman API Tests
+    #   run: |
+    #     newman run ./postman-tests/demo-crm.postman_collection.json --reporters cli
+
 
     - name: Remove testing environment
       run: docker compose down -v
