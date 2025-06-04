@@ -7,9 +7,9 @@ jobs:
   CI:
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    defaults:
-      run: 
-        working-directory: ./demo-crm-main
+    # defaults:
+    #   run: 
+    #     working-directory: ./demo-crm-main
     steps:
     - name: Check out code
       uses: actions/checkout@v2
@@ -60,7 +60,7 @@ jobs:
     
     - name: Run Postman API Tests
       run: |
-        newman run ../postman-tests/demo-crm.postman_collection.json --reporters cli
+        newman run ./postman-tests/demo-crm.postman_collection.json --reporters cli
 
     - name: Remove testing environment
       run: docker compose down -v
@@ -70,26 +70,26 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.ECR_ACCESS_KEY }}
         aws-secret-access-key: ${{ secrets.ECR_SECRET_KEY }}
-        aws-region: ap-south-1
+        aws-region: us-east-1
         
     - name: Authenticate Docker to AWS ECR
       run: ${{ secrets.DOCKER_AUTENTICATES_AWS }}
    
     - name: Tag Docker image
-      run: docker tag demo-crm:latest 390844757505.dkr.ecr.ap-south-1.amazonaws.com/development/demo-crm:v1.0.0
+      run: docker tag demo-crm:latest 569870184857.dkr.ecr.us-east-1.amazonaws.com/development/demo-crm
       
 #Publish to ECR repository
     - name: Push Docker image to ECR
-      run: docker push 390844757505.dkr.ecr.ap-south-1.amazonaws.com/development/demo-crm:v1.0.0
+      run: docker push 569870184857.dkr.ecr.us-east-1.amazonaws.com/development/demo-crm
 
 
   CD:
     needs: CI
     runs-on: ubuntu-latest
     timeout-minutes: 2
-    defaults:
-      run: 
-        working-directory: ./demo-crm-main
+    # defaults:
+    #   run: 
+    #     working-directory: ./demo-crm-main
     steps:
     - name: Check out code
       uses: actions/checkout@v2
@@ -99,7 +99,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.ECR_ACCESS_KEY }}
         aws-secret-access-key: ${{ secrets.ECR_SECRET_KEY }}
-        aws-region: ap-south-1
+        aws-region: us-east-1
         
     - name: Update Kubernetes Deployment
       run: |
