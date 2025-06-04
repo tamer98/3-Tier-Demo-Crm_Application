@@ -7,9 +7,6 @@ jobs:
   CI:
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    # defaults:
-    #   run: 
-    #     working-directory: ./demo-crm-main
     steps:
     - name: Check out code
       uses: actions/checkout@v2
@@ -52,8 +49,7 @@ jobs:
         
     - name: wait application to be upload
       run: |
-        sleep 5
-        # curl http://localhost:80
+        sleep 10
 
     - name: Install Newman (Postman CLI)
       run: npm install -g newman
@@ -82,14 +78,11 @@ jobs:
     - name: Push Docker image to ECR
       run: docker push 569870184857.dkr.ecr.us-east-1.amazonaws.com/development/demo-crm
 
-#
+
   CD:
     needs: CI
     runs-on: ubuntu-latest
     timeout-minutes: 2
-    # defaults:
-    #   run: 
-    #     working-directory: ./demo-crm-main
     steps:
     - name: Check out code
       uses: actions/checkout@v2
